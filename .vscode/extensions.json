@@ -1,6 +1,7 @@
 {
 	"recommendations": [
 		"EditorConfig.EditorConfig",
+		"streetsidesoftware.code-spell-checker",
 		"wayou.vscode-todo-highlight"
 	]
 }

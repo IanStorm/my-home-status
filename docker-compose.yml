@@ -1,0 +1,14 @@
+services:
+
+  my-home-status:
+    # image: ianstorm/my-home-status:latest
+    build: .
+    environment:
+      - GATUS_ALERTING_EMAIL_FROM=
+      - GATUS_ALERTING_EMAIL_HOST=
+      - GATUS_ALERTING_EMAIL_PASSWORD=
+      - GATUS_ALERTING_EMAIL_TO=
+      - GATUS_ALERTING_EMAIL_USERNAME=
+    restart: always
+    ports:
+      - 8080:8080
