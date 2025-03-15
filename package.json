@@ -6,7 +6,7 @@
   "main": "./dist/app.js",
   "scripts": {
     "build": "tsc",
-    "clean": "npx rimraf ./dist/ ./node_modules/",
+    "clean": "npx rimraf ./dist/ ./node_modules/ .tsbuildinfo",
     "start": "node .",
     "test": "npm-run-all --serial -c test:**",
     "test:1-ts": "tsc --noEmit",
