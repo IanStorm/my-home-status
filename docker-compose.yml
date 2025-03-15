@@ -1,14 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+
 services:
 
   my-home-status:
     # image: ianstorm/my-home-status:latest
     build: .
     environment:
-      - GATUS_ALERTING_EMAIL_FROM=
-      - GATUS_ALERTING_EMAIL_HOST=
-      - GATUS_ALERTING_EMAIL_PASSWORD=
-      - GATUS_ALERTING_EMAIL_TO=
-      - GATUS_ALERTING_EMAIL_USERNAME=
+      - ALERTING_EMAIL_FROM=
+      - ALERTING_EMAIL_HOST=
+      - ALERTING_EMAIL_PASSWORD=
+      - ALERTING_EMAIL_TO=
+      - ALERTING_EMAIL_USERNAME=
     restart: always
     ports:
       - 8080:8080
