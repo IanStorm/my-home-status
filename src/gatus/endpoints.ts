@@ -25,6 +25,19 @@ export type ConditionPlaceholder =
 ;
 
 /**
+ * 🔗 https://github.com/TwiN/gatus/blob/6d807e322e176d5eecfde4876ae93dfa54e9e9ac/client/client.go#L320
+ */
+export type DNSQueryType =
+	| "A"
+	| "AAAA"
+	| "CNAME"
+	| "MX"
+	| "NS"
+	| "PTR"
+	| "SRV"
+;
+
+/**
  * 🔗 https://github.com/TwiN/gatus?tab=readme-ov-file#conditions
  */
 export type EndpointConditionList = Array<EndpointCondition>;
@@ -47,7 +60,7 @@ export interface EndpointConfiguration {
 	body?: unknown
 	client?: unknown
 	conditions: EndpointConditionList
-	dns?: unknown
+	dns?: EndpointDNSConfiguration
 	enabled?: boolean
 	graphql?: unknown
 	group?: string
@@ -59,4 +72,12 @@ export interface EndpointConfiguration {
 	ssh?: unknown
 	ui?: unknown
 	url: string
+}
+
+/**
+ * 🔗 https://github.com/TwiN/gatus?tab=readme-ov-file#monitoring-an-endpoint-using-dns-queries
+ */
+export interface EndpointDNSConfiguration {
+	queryName: string
+	queryType: DNSQueryType
 }
