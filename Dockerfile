@@ -3,6 +3,7 @@ FROM node:22.14.0-alpine AS config-builder
 COPY ./ /workspace/
 
 RUN cd /workspace/ \
+	&& npm clean-install \
 	&& npm run build \
 	&& npm start
 
