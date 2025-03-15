@@ -16,7 +16,7 @@
 				"run",
 				"--rm",
 				"-t",
-				"-v", "${PWD}/:/mnt/",
+				"-v", "${LOCAL_WORKSPACE_FOLDER}/:/mnt/",
 				"ianstorm/dev-settings-sync",
 				"sync"
 			],

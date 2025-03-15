@@ -1,7 +1,5 @@
 {
 	"recommendations": [
-		"EditorConfig.EditorConfig",
-		"streetsidesoftware.code-spell-checker",
-		"wayou.vscode-todo-highlight"
+		"ms-vscode-remote.remote-containers"
 	]
 }
