@@ -1,0 +1,38 @@
+{
+  "name": "@ianstorm/my-home-status",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "main": "./dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "npx rimraf ./dist/ ./node_modules/",
+    "start": "node .",
+    "test": "npm-run-all --serial -c test:**",
+    "test:1-ts": "tsc --noEmit",
+    "test:2-lint": "eslint .",
+    "test:3-deps": "depcheck"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanStorm/my-home-status.git"
+  },
+  "author": {
+    "name": "Christian Sporer",
+    "url": "https://github.com/IanStorm"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin-js": "^1.8.1",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "depcheck": "^1.4.7",
+    "eslint": "^8.57.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.2"
+  }
+}

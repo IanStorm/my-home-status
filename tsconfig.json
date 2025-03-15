@@ -1,0 +1,7 @@
+{
+	"extends": "./etc/ts/base/tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"rootDir": "./src/"
+	}
+}

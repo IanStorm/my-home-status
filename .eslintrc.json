@@ -1,0 +1,12 @@
+{
+	"$schema": "https://json.schemastore.org/eslintrc.json",
+
+	"extends": "./etc/eslint/base/.eslintrc.json",
+	"env": {
+		"browser": false,
+		"node": true
+	},
+	"ignorePatterns": [
+		"dist/"
+	]
+}
