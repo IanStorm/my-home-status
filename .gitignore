@@ -3,4 +3,5 @@ node_modules/
 
 ./alpine-root/config/config.yaml
 
+credentials
 .tsbuildinfo

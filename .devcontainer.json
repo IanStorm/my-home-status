@@ -21,6 +21,13 @@
 			"version": "latest"
 		}
 	},
+	"mounts": [
+		{
+			"type": "bind",
+			"source": "/mnt/",
+			"target": "/mnt/"
+		}
+	],
 	"remoteEnv": {
 		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	}

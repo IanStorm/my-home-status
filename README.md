@@ -12,7 +12,9 @@ See how to put this repo in action at [IanStorm/my-smart-home-ras-pi](https://gi
 
 ## How to use in "production"? 👨‍💼 👩‍💼
 
-Use the setup provided in `docker-compose.yml`; make sure to use `image: [...]` (instead of `build: .`).
+Use the setup provided in `docker-compose.yml`:
+1. Make sure to use `image: [...]` (instead of `build: .`).
+2. Make sure to provide `./credentials/status.env` with all `ENV` mentioned in `Dockerfile`.
 
 
 ## How to develop? 👨‍💻 👩‍💻
@@ -21,8 +23,9 @@ Make sure you have installed *Visual Studio Code (VSCode)*.
 
 1. Clone this repository.
 2. Open the cloned folder in VSCode.
-2. Properly set all environment variables mentioned in `docker-compose.yml`.
-	* Make sure to use `build: .` (instead of `image: [...]`)
+2. Prepare `docker-compose.yml`:
+	1. Make sure to use `build: .` (instead of `image: [...]`).
+	2. Make sure to provide `./credentials/status.env` with all `ENV` mentioned in `Dockerfile`.
 2. Run `docker compose up --build`
 * To access the GUI open any browser and enter `http://127.0.0.1:8080`
 

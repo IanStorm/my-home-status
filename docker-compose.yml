@@ -5,20 +5,7 @@ services:
   my-home-status:
     # image: ianstorm/my-home-status:latest
     build: .
-    environment:
-      - ALERTING_EMAIL_FROM=
-      - ALERTING_EMAIL_HOST=
-      - ALERTING_EMAIL_PASSWORD=
-      - ALERTING_EMAIL_TO=
-      - ALERTING_EMAIL_USERNAME=
-      - DOMAIN_01=
-      - DOMAIN_01_SUBDOMAIN_01=
-      - DOMAIN_01_SUBDOMAIN_02=
-      - DOMAIN_02=
-      - DOMAIN_02_SUBDOMAIN_01=
-      - DOMAIN_02_SUBDOMAIN_02=
-      - DOMAIN_02_SUBDOMAIN_03=
-      - PROTON_DOMAINKEY=
+    env_file: ./credentials/status.env
     restart: always
     ports:
       - 8080:8080
