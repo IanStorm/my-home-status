@@ -24,7 +24,9 @@ export const myGatusConfig: Configuration = {
 	endpoints: [
 		createIsAliveEndpointCfg({ group: GROUP_01, name: "pihole", url: "http://my-home-dns/admin" }),
 
+		createIsAliveEndpointCfg({ group: GROUP_02, name: "cctv-nestbox", url: "http://my-home-cctv-nestbox" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "mqtt", url: "http://my-smart-home:8083" }),
+		createIsAliveEndpointCfg({ group: GROUP_02, name: "nginx", url: "http://my-smart-home" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "node-red", url: "http://my-smart-home:1880/ui" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "zigbee2mqtt", url: "http://my-smart-home:8099" }),
 
