@@ -1,5 +1,6 @@
 import type { Configuration } from "../gatus";
 import { EVERY_DAY } from "../gatus";
+import { runtimeEnv } from "./env";
 import {
 	createEndpointCfgListForProton,
 	createEndpointCfgListForSimpleLogin,
@@ -13,12 +14,12 @@ import {
 export const myGatusConfig: Configuration = {
 	alerting: {
 		email: {
-			from: "${ALERTING_EMAIL_FROM}",
-			host: "${ALERTING_EMAIL_HOST",
-			password: "${ALERTING_EMAIL_PASSWORD}",
+			from: runtimeEnv.alerting.email.from,
+			host: runtimeEnv.alerting.email.host,
+			password: runtimeEnv.alerting.email.password,
 			port: 587,
-			to: "${ALERTING_EMAIL_TO}",
-			username: "${ALERTING_EMAIL_USERNAME}",
+			to: runtimeEnv.alerting.email.to,
+			username: runtimeEnv.alerting.email.username,
 		},
 	},
 	endpoints: [
@@ -31,47 +32,47 @@ export const myGatusConfig: Configuration = {
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "zigbee2mqtt", url: "http://my-smart-home:8099" }),
 
 		...createEndpointCfgListForProton({
-			domain: "${DOMAIN_01}",
-			domainKey: "${PROTON_DOMAINKEY}",
+			domain: runtimeEnv.domains["01"].domain,
+			domainKey: runtimeEnv.proton.domainKey,
 			group: GROUP_03,
 			name: "@.de",
 		}),
 
 		...createEndpointCfgListForSimpleLogin({
-			domain: "${DOMAIN_01}",
+			domain: runtimeEnv.domains["01"].domain,
 			group: GROUP_03,
 			name: "ch.@.de",
-			subDomain: "${DOMAIN_01_SUBDOMAIN_01}",
+			subDomain: runtimeEnv.domains["01"].subdomains["01"],
 		}),
 		...createEndpointCfgListForSimpleLogin({
-			domain: "${DOMAIN_01}",
+			domain: runtimeEnv.domains["01"].domain,
 			group: GROUP_03,
 			name: "sa.@.de",
-			subDomain: "${DOMAIN_01_SUBDOMAIN_02}",
+			subDomain: runtimeEnv.domains["01"].subdomains["02"],
 		}),
 		...createEndpointCfgListForSimpleLogin({
-			domain: "${DOMAIN_02}",
+			domain: runtimeEnv.domains["02"].domain,
 			group: GROUP_03,
 			name: "@.me",
 			subDomain: undefined,
 		}),
 		...createEndpointCfgListForSimpleLogin({
-			domain: "${DOMAIN_02}",
+			domain: runtimeEnv.domains["02"].domain,
 			group: GROUP_03,
 			name: "ch.@.me",
-			subDomain: "${DOMAIN_02_SUBDOMAIN_01}",
+			subDomain: runtimeEnv.domains["02"].subdomains["01"],
 		}),
 		...createEndpointCfgListForSimpleLogin({
-			domain: "${DOMAIN_02}",
+			domain: runtimeEnv.domains["02"].domain,
 			group: GROUP_03,
 			name: "fa.@.me",
-			subDomain: "${DOMAIN_02_SUBDOMAIN_02}",
+			subDomain: runtimeEnv.domains["02"].subdomains["02"],
 		}),
 		...createEndpointCfgListForSimpleLogin({
-			domain: "${DOMAIN_02}",
+			domain: runtimeEnv.domains["02"].domain,
 			group: GROUP_03,
 			name: "sa.@.me",
-			subDomain: "${DOMAIN_02_SUBDOMAIN_03}",
+			subDomain: runtimeEnv.domains["02"].subdomains["03"],
 		}),
 	],
 	maintenance: {
