@@ -10,7 +10,7 @@ RUN cd /workspace/ \
 #
 # ⬇️ main stage
 #
-FROM twinproduction/gatus:v5.16.0
+FROM twinproduction/gatus:v5.17.0
 
 ENV ALERTING_EMAIL_FROM=
 ENV ALERTING_EMAIL_HOST=
