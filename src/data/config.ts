@@ -2,6 +2,7 @@ import type { Configuration } from "../gatus";
 import { EVERY_DAY } from "../gatus";
 import { runtimeEnv } from "./env";
 import {
+	createEndpointCfgForHetznerStorageShare,
 	createEndpointCfgListForProton,
 	createEndpointCfgListForSimpleLogin,
 	createIsAliveEndpointCfg,
@@ -30,6 +31,13 @@ export const myGatusConfig: Configuration = {
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "nginx", url: "http://my-smart-home" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "node-red", url: "http://my-smart-home:1880/ui" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "zigbee2mqtt", url: "http://my-smart-home:8099" }),
+
+		createEndpointCfgForHetznerStorageShare({
+			domain: `${runtimeEnv.domains[".de"].subDomains.nc.name}.${runtimeEnv.domains[".de"].name}`,
+			group: GROUP_03,
+			name: "nc.@.de",
+			storageShareID: runtimeEnv.domains[".de"].subDomains.nc.storageShareID,
+		}),
 
 		...createEndpointCfgListForProton({
 			domain: runtimeEnv.domains[".de"].name,

@@ -17,6 +17,20 @@ const createDNSLookupEndpointCfg: (
 	url: CLOUDFLARE_DNS_URL,
 });
 
+export const createEndpointCfgForHetznerStorageShare: (
+	opts: Readonly<{
+		domain: string
+		storageShareID: string
+	}> & Required<Pick<EndpointConfiguration, "group" | "name">>
+) => EndpointConfiguration = ({ domain, group, name, storageShareID }) =>
+	createDNSLookupEndpointCfg({
+		conditions: [`[BODY] == nx${storageShareID}.your-storageshare.de.`],
+		dns: { queryName: domain, queryType: "CNAME" },
+		group,
+		name: `CNAME ${name}`,
+	})
+;
+
 export const createEndpointCfgListForProton: (
 	opts: Readonly<{
 		domain: string
