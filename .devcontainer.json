@@ -21,6 +21,7 @@
 			"version": "latest"
 		}
 	},
+	"forwardPorts": [8080],
 	"mounts": [
 		{
 			"type": "bind",
