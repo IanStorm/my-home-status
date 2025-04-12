@@ -45,6 +45,12 @@ export const myGatusConfig: Configuration = {
 			group: GROUP_03,
 			name: "@.de",
 		}),
+		...createEndpointCfgListForProton({
+			domain: `${runtimeEnv.domains[".de"].subDomains.nr.name}.${runtimeEnv.domains[".de"].name}`,
+			domainKey: runtimeEnv.domains[".de"].subDomains.nr.protonDomainKey,
+			group: GROUP_03,
+			name: "nr.@.de",
+		}),
 
 		...createEndpointCfgListForSimpleLogin({
 			domain: runtimeEnv.domains[".de"].name,

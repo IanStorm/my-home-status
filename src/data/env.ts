@@ -19,6 +19,10 @@ export const runtimeEnv = {
 					name: "${DOMAINS_DE_SUBDOMAINS_NC_NAME}",
 					storageShareID: "${DOMAINS_DE_SUBDOMAINS_NC_STORAGESHAREID}",
 				},
+				"nr": {
+					name: "${DOMAINS_DE_SUBDOMAINS_NR_NAME}",
+					protonDomainKey: "${DOMAINS_DE_SUBDOMAINS_NR_PROTONKEY}",
+				},
 				sa: { name: "${DOMAINS_DE_SUBDOMAINS_SA_NAME}" },
 			},
 		},
