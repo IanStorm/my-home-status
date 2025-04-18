@@ -28,7 +28,7 @@
     "yaml": "^2.7.1"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin-js": "^1.8.1",
+    "@stylistic/eslint-plugin-js": "^4.2.0",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.17.16",
     "@typescript-eslint/eslint-plugin": "^8.30.1",
