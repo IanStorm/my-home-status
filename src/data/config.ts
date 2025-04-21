@@ -33,6 +33,11 @@ export const myGatusConfig: Configuration = {
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "node-red (ping)", url: "http://my-smart-home:1880/ui" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "zigbee2mqtt (ping)", url: "http://my-smart-home:8099" }),
 
+		createIsAliveEndpointCfg({
+			group: GROUP_03,
+			name: "nc.@.de (ping)",
+			url: `https://${runtimeEnv.domains[".de"].subDomains.nc.name}.${runtimeEnv.domains[".de"].name}`,
+		}),
 		createEndpointCfgForHetznerStorageShare({
 			domain: `${runtimeEnv.domains[".de"].subDomains.nc.name}.${runtimeEnv.domains[".de"].name}`,
 			group: GROUP_03,
