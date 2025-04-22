@@ -1,11 +1,13 @@
-import type { EndpointConfiguration, EndpointConfigurationList } from "../gatus";
+import type { AlertConfiguration, EndpointConfiguration, EndpointConfigurationList } from "../gatus";
 
 /* no export */ const CLOUDFLARE_DNS_URL = "1.1.1.1";
+
+/* no export */ const EMAIL_ALERT: AlertConfiguration = { sendOnResolved: true, type: "email" };
 
 const createDNSLookupEndpointCfg: (
 	opts: Readonly<Required<Pick<EndpointConfiguration, "conditions" | "dns" | "group" | "name">>>
 ) => EndpointConfiguration = ({ conditions, dns, group, name }) => ({
-	alerts: [{ type: "email" }],
+	alerts: [EMAIL_ALERT],
 	conditions: [
 		"[DNS_RCODE] == NOERROR",
 		...conditions,
@@ -106,7 +108,7 @@ export const createEndpointCfgListForSimpleLogin: (
 export const createIsAliveEndpointCfg: (
 	opts: Readonly<Pick<EndpointConfiguration, "group" | "name" | "url">>
 ) => EndpointConfiguration = ({ group, name, url }) => ({
-	alerts: [{ type: "email" }],
+	alerts: [EMAIL_ALERT],
 	conditions: [
 		"[CONNECTED] == true",
 		"[STATUS] <= 299",
