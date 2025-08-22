@@ -10,7 +10,7 @@ RUN cd /workspace/ \
 #
 # ⬇️ main stage
 #
-FROM twinproduction/gatus:v5.22.0
+FROM twinproduction/gatus:v5.23.2
 
 ENV DOMAINS_DE_NAME=
 ENV DOMAINS_DE_PROTONKEY=
