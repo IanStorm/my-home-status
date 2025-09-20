@@ -33,6 +33,70 @@ export const createEndpointCfgForHetznerStorageShare: (
 	})
 ;
 
+export const createEndpointCfgListForMigadu: (
+	opts: Readonly<{
+		domain: string
+		subDomain?: string
+	} & Required<Pick<EndpointConfiguration, "group" | "name">>>
+) => EndpointConfigurationList = ({ domain, group, name, subDomain }) => [
+	// TODO: 1x verification via TXT
+
+	createDNSLookupEndpointCfg({
+		conditions: ["[BODY] == any(aspmx1.migadu.com.,aspmx2.migadu.com.)"],
+		dns: { queryName: `${subDomain ? subDomain + "." : ""}${domain}`, queryType: "MX" },
+		group,
+		name: `${name} MX`,
+	}),
+
+	createDNSLookupEndpointCfg({
+		conditions: [`[BODY] == key1.${subDomain ? subDomain + "." : ""}${domain}._domainkey.migadu.com.`],
+		dns: { queryName: `key1._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
+		group,
+		name: `${name} DKIM+ARC 1`,
+	}),
+	createDNSLookupEndpointCfg({
+		conditions: [`[BODY] == key2.${subDomain ? subDomain + "." : ""}${domain}._domainkey.migadu.com.`],
+		dns: { queryName: `key2._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
+		group,
+		name: `${name} DKIM+ARC 2`,
+	}),
+	createDNSLookupEndpointCfg({
+		conditions: [`[BODY] == key3.${subDomain ? subDomain + "." : ""}${domain}._domainkey.migadu.com.`],
+		dns: { queryName: `key3._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
+		group,
+		name: `${name} DKIM+ARC 3`,
+	}),
+
+	// TODO: 1x SPF via TXT
+
+	// TODO: 1x DMARC via TXT
+
+	createDNSLookupEndpointCfg({
+		conditions: ["[BODY] == autoconfig.migadu.com."],
+		dns: { queryName: `autoconfig.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
+		group,
+		name: `${name} autoconfig/autodiscovery 1`,
+	}),
+	createDNSLookupEndpointCfg({
+		conditions: ["[BODY] == autodiscover.migadu.com.:443"],
+		dns: { queryName: `_autodiscover._tcp.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "SRV" },
+		group,
+		name: `${name} autoconfig/autodiscovery 2`,
+	}),
+	createDNSLookupEndpointCfg({
+		conditions: ["[BODY] == smtp.migadu.com.:465"],
+		dns: { queryName: `_submissions._tcp.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "SRV" },
+		group,
+		name: `${name} SMTP`,
+	}),
+	createDNSLookupEndpointCfg({
+		conditions: ["[BODY] == imap.migadu.com.:993"],
+		dns: { queryName: `_imaps._tcp.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "SRV" },
+		group,
+		name: `${name} IMAP`,
+	}),
+];
+
 export const createEndpointCfgListForProton: (
 	opts: Readonly<{
 		domain: string
