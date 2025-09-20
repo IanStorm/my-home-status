@@ -27,7 +27,8 @@ Make sure you have installed *Visual Studio Code (VSCode)*.
 	1. Make sure to use `build: .` (instead of `image: [...]`).
 	2. Make sure to provide `./credentials/status.env` with all `ENV` mentioned in `Dockerfile`.
 2. Run `docker compose up --build`
-* To access the GUI open any browser and enter `http://127.0.0.1:8080`
+	* To access the GUI, open any browser and enter `http://127.0.0.1:8080`
+	* To stop/close, first press <kbd>Ctrl</kbd>+<kbd>C</kbd>, then run `docker compose down`
 
 
 ## Appendix
