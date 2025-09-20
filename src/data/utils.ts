@@ -29,7 +29,7 @@ export const createEndpointCfgForHetznerStorageShare: (
 		conditions: [`[BODY] == nx${storageShareID}.your-storageshare.de.`],
 		dns: { queryName: domain, queryType: "CNAME" },
 		group,
-		name: `CNAME ${name}`,
+		name: `${name} CNAME`,
 	})
 ;
 
@@ -43,26 +43,26 @@ export const createEndpointCfgListForProton: (
 		conditions: [`[BODY] == protonmail.domainkey.${domainKey}.domains.proton.ch.`],
 		dns: { queryName: `protonmail._domainkey.${domain}`, queryType: "CNAME" },
 		group,
-		name: `CNAME ${name} 1`,
+		name: `${name} CNAME 1`,
 	}),
 	createDNSLookupEndpointCfg({
 		conditions: [`[BODY] == protonmail2.domainkey.${domainKey}.domains.proton.ch.`],
 		dns: { queryName: `protonmail2._domainkey.${domain}`, queryType: "CNAME" },
 		group,
-		name: `CNAME ${name} 2`,
+		name: `${name} CNAME 2`,
 	}),
 	createDNSLookupEndpointCfg({
 		conditions: [`[BODY] == protonmail3.domainkey.${domainKey}.domains.proton.ch.`],
 		dns: { queryName: `protonmail3._domainkey.${domain}`, queryType: "CNAME" },
 		group,
-		name: `CNAME ${name} 3`,
+		name: `${name} CNAME 3`,
 	}),
 
 	createDNSLookupEndpointCfg({
 		conditions: ["[BODY] == any(mail.protonmail.ch.,mailsec.protonmail.ch.)"],
 		dns: { queryName: domain, queryType: "MX" },
 		group,
-		name: `MX ${name}`,
+		name: `${name} MX`,
 	}),
 
 	// TODO: TXT
@@ -78,19 +78,19 @@ export const createEndpointCfgListForSimpleLogin: (
 		conditions: ["[BODY] == dkim._domainkey.simplelogin.co."],
 		dns: { queryName: `dkim._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
 		group,
-		name: `CNAME ${name} 1`,
+		name: `${name} CNAME 1`,
 	}),
 	createDNSLookupEndpointCfg({
 		conditions: ["[BODY] == dkim02._domainkey.simplelogin.co."],
 		dns: { queryName: `dkim02._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
 		group,
-		name: `CNAME ${name} 2`,
+		name: `${name} CNAME 2`,
 	}),
 	createDNSLookupEndpointCfg({
 		conditions: ["[BODY] == dkim03._domainkey.simplelogin.co."],
 		dns: { queryName: `dkim03._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
 		group,
-		name: `CNAME ${name} 3`,
+		name: `${name} CNAME 3`,
 	}),
 
 	subDomain
@@ -98,7 +98,7 @@ export const createEndpointCfgListForSimpleLogin: (
 			conditions: ["[BODY] == any(mx1.simplelogin.co.,mx2.simplelogin.co.)"],
 			dns: { queryName: `${subDomain}.${domain}`, queryType: "MX" },
 			group,
-			name: `MX ${name}`,
+			name: `${name} MX`,
 		})
 		: undefined,
 
