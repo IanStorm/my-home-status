@@ -132,43 +132,6 @@ export const createEndpointCfgListForProton: (
 	// TODO: TXT
 ];
 
-export const createEndpointCfgListForSimpleLogin: (
-	opts: Readonly<{
-		domain: string
-		subDomain?: string
-	} & Required<Pick<EndpointConfiguration, "group" | "name">>>
-) => EndpointConfigurationList = ({ domain, group, name, subDomain }) => [
-	createDNSLookupEndpointCfg({
-		conditions: ["[BODY] == dkim._domainkey.simplelogin.co."],
-		dns: { queryName: `dkim._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
-		group,
-		name: `${name} CNAME 1`,
-	}),
-	createDNSLookupEndpointCfg({
-		conditions: ["[BODY] == dkim02._domainkey.simplelogin.co."],
-		dns: { queryName: `dkim02._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
-		group,
-		name: `${name} CNAME 2`,
-	}),
-	createDNSLookupEndpointCfg({
-		conditions: ["[BODY] == dkim03._domainkey.simplelogin.co."],
-		dns: { queryName: `dkim03._domainkey.${subDomain ? subDomain + "." : ""}${domain}`, queryType: "CNAME" },
-		group,
-		name: `${name} CNAME 3`,
-	}),
-
-	subDomain
-		? createDNSLookupEndpointCfg({
-			conditions: ["[BODY] == any(mx1.simplelogin.co.,mx2.simplelogin.co.)"],
-			dns: { queryName: `${subDomain}.${domain}`, queryType: "MX" },
-			group,
-			name: `${name} MX`,
-		})
-		: undefined,
-
-	// TODO: TXT
-].filter((c) => c !== undefined);
-
 export const createIsAliveEndpointCfg: (
 	opts: Readonly<Pick<EndpointConfiguration, "group" | "name" | "url">>
 ) => EndpointConfiguration = ({ group, name, url }) => ({
