@@ -3,8 +3,8 @@ import { EVERY_DAY } from "../gatus";
 import { runtimeEnv } from "./env";
 import {
 	createEndpointCfgForHetznerStorageShare,
+	createEndpointCfgListForMigadu,
 	createEndpointCfgListForProton,
-	createEndpointCfgListForSimpleLogin,
 	createIsAliveEndpointCfg,
 } from "./utils";
 
@@ -56,38 +56,32 @@ export const myGatusConfig: Configuration = {
 			group: GROUP_03,
 			name: "nr.@.de (DNS)",
 		}),
-		...createEndpointCfgListForSimpleLogin({
+		...createEndpointCfgListForMigadu({
 			domain: runtimeEnv.domains[".de"].name,
 			group: GROUP_03,
 			name: "ch.@.de (DNS)",
 			subDomain: runtimeEnv.domains[".de"].subDomains.ch.name,
 		}),
-		...createEndpointCfgListForSimpleLogin({
+		...createEndpointCfgListForMigadu({
 			domain: runtimeEnv.domains[".de"].name,
 			group: GROUP_03,
 			name: "sa.@.de (DNS)",
 			subDomain: runtimeEnv.domains[".de"].subDomains.sa.name,
 		}),
 
-		...createEndpointCfgListForSimpleLogin({
-			domain: runtimeEnv.domains[".me"].name,
-			group: GROUP_04,
-			name: "@.me (DNS)",
-			subDomain: undefined,
-		}),
-		...createEndpointCfgListForSimpleLogin({
+		...createEndpointCfgListForMigadu({
 			domain: runtimeEnv.domains[".me"].name,
 			group: GROUP_04,
 			name: "ch.@.me (DNS)",
 			subDomain: runtimeEnv.domains[".me"].subDomains.ch.name,
 		}),
-		...createEndpointCfgListForSimpleLogin({
+		...createEndpointCfgListForMigadu({
 			domain: runtimeEnv.domains[".me"].name,
 			group: GROUP_04,
-			name: "fa.@.me (DNS)",
+			name: "fam.@.me (DNS)",
 			subDomain: runtimeEnv.domains[".me"].subDomains.fam.name,
 		}),
-		...createEndpointCfgListForSimpleLogin({
+		...createEndpointCfgListForMigadu({
 			domain: runtimeEnv.domains[".me"].name,
 			group: GROUP_04,
 			name: "sa.@.me (DNS)",
