@@ -41,6 +41,7 @@ export const runtimeEnv = {
 				from: "${GATUS_ALERTING_EMAIL_FROM}",
 				host: "${GATUS_ALERTING_EMAIL_HOST}",
 				password: "${GATUS_ALERTING_EMAIL_PASSWORD}",
+				port: "${GATUS_ALERTING_EMAIL_PORT}",
 				to: "${GATUS_ALERTING_EMAIL_TO}",
 				username: "${GATUS_ALERTING_EMAIL_USERNAME}",
 			},
