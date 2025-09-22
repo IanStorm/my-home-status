@@ -40,7 +40,7 @@ export interface EmailAlertingConfiguration {
 	host: string;
 	overrides?: unknown;
 	password?: string;
-	port: number;
+	port: number | string;
 	to: string;
 	username?: string;
 }

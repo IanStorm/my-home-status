@@ -19,7 +19,7 @@ export const myGatusConfig: Configuration = {
 			from: runtimeEnv.gatus.alerting.email.from,
 			host: runtimeEnv.gatus.alerting.email.host,
 			password: runtimeEnv.gatus.alerting.email.password,
-			port: Number(runtimeEnv.gatus.alerting.email.port),
+			port: runtimeEnv.gatus.alerting.email.port,
 			to: runtimeEnv.gatus.alerting.email.to,
 			username: runtimeEnv.gatus.alerting.email.username,
 		},
