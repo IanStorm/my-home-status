@@ -50,11 +50,11 @@ export const myGatusConfig: Configuration = {
 			group: GROUP_03,
 			name: "@.de (DNS)",
 		}),
-		...createEndpointCfgListForProton({
-			domain: `${runtimeEnv.domains[".de"].subDomains.nr.name}.${runtimeEnv.domains[".de"].name}`,
-			domainKey: runtimeEnv.domains[".de"].subDomains.nr.protonDomainKey,
+		...createEndpointCfgListForMigadu({
+			domain: runtimeEnv.domains[".de"].name,
 			group: GROUP_03,
 			name: "nr.@.de (DNS)",
+			subDomain: runtimeEnv.domains[".de"].subDomains.nr.name,
 		}),
 		...createEndpointCfgListForMigadu({
 			domain: runtimeEnv.domains[".de"].name,
