@@ -14,21 +14,39 @@ export const runtimeEnv = {
 			name: "${DOMAINS_DE_NAME}",
 			protonDomainKey: "${DOMAINS_DE_PROTONKEY}",
 			subDomains: {
-				ch: { name: "${DOMAINS_DE_SUBDOMAINS_CH_NAME}" },
+				ch: {
+					migaduVerify: "${DOMAINS_DE_SUBDOMAINS_CH_MIGADUVERIFY}",
+					name: "${DOMAINS_DE_SUBDOMAINS_CH_NAME}",
+				},
 				"nc": {
 					name: "${DOMAINS_DE_SUBDOMAINS_NC_NAME}",
 					storageShareID: "${DOMAINS_DE_SUBDOMAINS_NC_STORAGESHAREID}",
 				},
-				nr: { name: "${DOMAINS_DE_SUBDOMAINS_NR_NAME}" },
-				sa: { name: "${DOMAINS_DE_SUBDOMAINS_SA_NAME}" },
+				nr: {
+					migaduVerify: "${DOMAINS_DE_SUBDOMAINS_NR_MIGADUVERIFY}",
+					name: "${DOMAINS_DE_SUBDOMAINS_NR_NAME}",
+				},
+				sa: {
+					migaduVerify: "${DOMAINS_DE_SUBDOMAINS_SA_MIGADUVERIFY}",
+					name: "${DOMAINS_DE_SUBDOMAINS_SA_NAME}",
+				},
 			},
 		},
 		".me": {
 			name: "${DOMAINS_ME_NAME}",
 			subDomains: {
-				ch: { name: "${DOMAINS_ME_SUBDOMAINS_CH_NAME}" },
-				fam: { name: "${DOMAINS_ME_SUBDOMAINS_FAM_NAME}" },
-				sa: { name: "${DOMAINS_ME_SUBDOMAINS_SA_NAME}" },
+				ch: {
+					migaduVerify: "${DOMAINS_ME_SUBDOMAINS_CH_MIGADUVERIFY}",
+					name: "${DOMAINS_ME_SUBDOMAINS_CH_NAME}",
+				},
+				fam: {
+					migaduVerify: "${DOMAINS_ME_SUBDOMAINS_FAM_MIGADUVERIFY}",
+					name: "${DOMAINS_ME_SUBDOMAINS_FAM_NAME}",
+				},
+				sa: {
+					migaduVerify: "${DOMAINS_ME_SUBDOMAINS_SA_MIGADUVERIFY}",
+					name: "${DOMAINS_ME_SUBDOMAINS_SA_NAME}",
+				},
 			},
 		},
 	},
