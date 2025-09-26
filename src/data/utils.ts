@@ -97,41 +97,6 @@ export const createEndpointCfgListForMigadu: (
 	}),
 ];
 
-export const createEndpointCfgListForProton: (
-	opts: Readonly<{
-		domain: string
-		domainKey: string
-	} & Required<Pick<EndpointConfiguration, "group" | "name">>>
-) => EndpointConfigurationList = ({ domain, domainKey, group, name }) => [
-	createDNSLookupEndpointCfg({
-		conditions: [`[BODY] == protonmail.domainkey.${domainKey}.domains.proton.ch.`],
-		dns: { queryName: `protonmail._domainkey.${domain}`, queryType: "CNAME" },
-		group,
-		name: `${name} CNAME 1`,
-	}),
-	createDNSLookupEndpointCfg({
-		conditions: [`[BODY] == protonmail2.domainkey.${domainKey}.domains.proton.ch.`],
-		dns: { queryName: `protonmail2._domainkey.${domain}`, queryType: "CNAME" },
-		group,
-		name: `${name} CNAME 2`,
-	}),
-	createDNSLookupEndpointCfg({
-		conditions: [`[BODY] == protonmail3.domainkey.${domainKey}.domains.proton.ch.`],
-		dns: { queryName: `protonmail3._domainkey.${domain}`, queryType: "CNAME" },
-		group,
-		name: `${name} CNAME 3`,
-	}),
-
-	createDNSLookupEndpointCfg({
-		conditions: ["[BODY] == any(mail.protonmail.ch.,mailsec.protonmail.ch.)"],
-		dns: { queryName: domain, queryType: "MX" },
-		group,
-		name: `${name} MX`,
-	}),
-
-	// TODO: TXT
-];
-
 export const createIsAliveEndpointCfg: (
 	opts: Readonly<Pick<EndpointConfiguration, "group" | "name" | "url">>
 ) => EndpointConfiguration = ({ group, name, url }) => ({
