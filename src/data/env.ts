@@ -11,8 +11,8 @@ import type { ScreamingSnakeCase }from "type-fest";
 export const runtimeEnv = {
 	domains: {
 		".de": {
+			migaduVerify: "${DOMAINS_DE_MIGADUVERIFY}",
 			name: "${DOMAINS_DE_NAME}",
-			protonDomainKey: "${DOMAINS_DE_PROTONKEY}",
 			subDomains: {
 				ch: {
 					migaduVerify: "${DOMAINS_DE_SUBDOMAINS_CH_MIGADUVERIFY}",

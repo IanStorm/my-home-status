@@ -4,7 +4,6 @@ import { runtimeEnv } from "./env";
 import {
 	createEndpointCfgForHetznerStorageShare,
 	createEndpointCfgListForMigadu,
-	createEndpointCfgListForProton,
 	createIsAliveEndpointCfg,
 } from "./utils";
 
@@ -44,9 +43,8 @@ export const myGatusConfig: Configuration = {
 			name: "nc.@.de (DNS)",
 			storageShareID: runtimeEnv.domains[".de"].subDomains.nc.storageShareID,
 		}),
-		...createEndpointCfgListForProton({
+		...createEndpointCfgListForMigadu({
 			domain: runtimeEnv.domains[".de"].name,
-			domainKey: runtimeEnv.domains[".de"].protonDomainKey,
 			group: GROUP_03,
 			name: "@.de (DNS)",
 		}),
