@@ -28,6 +28,14 @@ export interface AlertConfiguration {
 	failureThreshold?: number
 
 	/**
+	 * Minimum time interval between alert reminders.
+	 * E.g. "30m", "1h45m30s" or "24h". If empty or 0, reminders are disabled.
+	 * Cannot be lower than 5m.
+	 * @default 0
+	 */
+	minimumReminderInterval?: string | number
+
+	/**
 	 * Alerting provider configuration override for the given alert type
 	 * @default {}
 	 */
