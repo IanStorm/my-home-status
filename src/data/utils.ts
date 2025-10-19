@@ -2,7 +2,11 @@ import type { AlertConfiguration, EndpointConfiguration, EndpointConfigurationLi
 
 /* no export */ const CLOUDFLARE_DNS_URL = "1.1.1.1";
 
-/* no export */ const EMAIL_ALERT: AlertConfiguration = { sendOnResolved: true, type: "email" };
+/* no export */ const EMAIL_ALERT: AlertConfiguration = {
+	minimumReminderInterval: "24h",
+	sendOnResolved: true,
+	type: "email",
+};
 
 const createDNSLookupEndpointCfg: (
 	opts: Readonly<Required<Pick<EndpointConfiguration, "conditions" | "dns" | "group" | "name">>>

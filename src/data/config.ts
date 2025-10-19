@@ -26,7 +26,6 @@ export const myGatusConfig: Configuration = {
 	endpoints: [
 		createIsAliveEndpointCfg({ group: GROUP_01, name: "pihole (ping)", url: "http://my-home-dns/admin" }),
 
-		createIsAliveEndpointCfg({ group: GROUP_02, name: "cctv-nestbox (ping)", url: "http://my-home-cctv-nestbox" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "mqtt (ping)", url: "http://my-smart-home:8083" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "nginx (ping)", url: "http://my-smart-home" }),
 		createIsAliveEndpointCfg({ group: GROUP_02, name: "node-red (ping)", url: "http://my-smart-home:1880/ui" }),
