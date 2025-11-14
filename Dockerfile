@@ -10,7 +10,7 @@ RUN cd /workspace/ \
 #
 # ⬇️ main stage
 #
-FROM twinproduction/gatus:v5.30.0
+FROM twinproduction/gatus:v5.31.0
 
 ENV DOMAINS_DE_MIGADUVERIFY=
 ENV DOMAINS_DE_NAME=
