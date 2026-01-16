@@ -1,4 +1,4 @@
-FROM node:22.21.1-alpine AS config-builder
+FROM node:22.22.0-alpine AS config-builder
 
 COPY ./ /workspace/
 
