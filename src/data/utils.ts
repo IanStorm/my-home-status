@@ -18,7 +18,7 @@ const createDNSLookupEndpointCfg: (
 	],
 	dns,
 	group,
-	interval: "1h",
+	interval: "2h",
 	name,
 	url: CLOUDFLARE_DNS_URL,
 });
