@@ -1,4 +1,5 @@
 import type { AlertConfigurationList } from "./alert";
+import type { ClientConfiguration } from "./client";
 
 /**
  * 🔗 https://github.com/TwiN/gatus?tab=readme-ov-file#conditions
@@ -58,7 +59,7 @@ export type EndpointConfigurationList = Array<EndpointConfiguration>;
 export interface EndpointConfiguration {
 	alerts?: AlertConfigurationList
 	body?: unknown
-	client?: unknown
+	client?: ClientConfiguration
 	conditions: EndpointConditionList
 	dns?: EndpointDNSConfiguration
 	enabled?: boolean
