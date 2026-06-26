@@ -23,7 +23,7 @@
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "fs-extra": "^11.3.4",
+    "fs-extra": "^11.3.5",
     "lodash": "^4.18.1",
     "yaml": "^2.8.3"
   },
