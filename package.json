@@ -30,7 +30,7 @@
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^1.8.1",
     "@types/fs-extra": "^11.0.4",
-    "@types/lodash": "^4.17.26",
+    "@types/lodash": "^4.17.27",
     "@typescript-eslint/eslint-plugin": "^8.72.0",
     "@typescript-eslint/parser": "^8.71.1",
     "depcheck": "^1.4.7",
